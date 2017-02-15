@@ -9,7 +9,7 @@ namespace FindAndReplaceFunction.Objects
     private string _phraseInput;
     private string _oldWord;
     private string _newWord;
-    private List<string> _allInputs = new List<string>();
+    private List<string> _outputWords = new List<string>{};
 
     public FindAndReplace (string phraseInput, string oldWord, string newWord)
     {
@@ -18,12 +18,22 @@ namespace FindAndReplaceFunction.Objects
       _newWord = newWord;
     }
 
-    public List<string> GetAllInputs()
+    public List<string> FindAndReplaceMethod()
     {
-      _allInputs.Add(_phraseInput);
-      _allInputs.Add(_oldWord);
-      _allInputs.Add(_newWord);
-      return _allInputs;
+      string[] words = _phraseInput.Split(' ');
+      foreach(string word in words)
+      {
+        if (word == _oldWord)
+        {
+          _outputWords.Add(_oldWord);
+          _outputWords.Add("Your word was a match");
+        }
+      }
+      if (_outputWords.Count == 0)
+      {
+        _outputWords.Add("Your word was not a match");
+      }
+      return _outputWords;
     }
   }
 }
