@@ -24,15 +24,17 @@ namespace FindAndReplaceFunction.Objects
       string newPhrase = string.Join(" ", words);
       if (_phraseInput.Contains(_oldWord))
       {
+        Console.WriteLine("match");
         for(int i = 0; i < words.Length; i++)
         {
-          if (words[i] == _oldWord)
+          if (words[i].Contains(_oldWord))
           {
-            words[i] = _newWord;
-            Console.WriteLine(words[i]);
+            //replace just that part of the word
+            words[i] = words[i].Replace(_oldWord, _newWord);
             newPhrase = string.Join(" ", words);
           }
         }
+        Console.WriteLine(newPhrase);
         _outputWords.Add(newPhrase);
       }
       else
