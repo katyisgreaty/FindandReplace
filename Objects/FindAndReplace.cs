@@ -25,8 +25,9 @@ namespace FindAndReplaceFunction.Objects
       {
         if (word == _oldWord)
         {
-          _outputWords.Add(_oldWord);
-          _outputWords.Add("Your word was a match");
+          string newPhrase = _phraseInput.Replace(_oldWord, _newWord);
+          Console.WriteLine(newPhrase);
+          _outputWords.Add(newPhrase);
         }
       }
       if (_outputWords.Count == 0)
