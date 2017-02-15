@@ -37,8 +37,8 @@ namespace FindAndReplaceFunction.Objects
     [Fact]
     public void FindAndReplace_ReturnReplacedPhrase_ReplacedPhrase()
     {
-      FindAndReplace testFindAndReplace = new FindAndReplace("hello cutie", "hello", "goodbye");
-      List<string> expected = new List<string>{"goodbye cutie"};
+      FindAndReplace testFindAndReplace = new FindAndReplace("hello cutie hello friend", "hello", "goodbye");
+      List<string> expected = new List<string>{"goodbye cutie goodbye friend"};
       List<string> output = testFindAndReplace.FindAndReplaceMethod();
       Assert.Equal(expected, output);
     }

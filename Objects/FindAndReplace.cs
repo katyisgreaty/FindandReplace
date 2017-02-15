@@ -21,16 +21,21 @@ namespace FindAndReplaceFunction.Objects
     public List<string> FindAndReplaceMethod()
     {
       string[] words = _phraseInput.Split(' ');
-      foreach(string word in words)
+      string newPhrase = string.Join(" ", words);
+      if (_phraseInput.Contains(_oldWord))
       {
-        if (word == _oldWord)
+        for(int i = 0; i < words.Length; i++)
         {
-          string newPhrase = _phraseInput.Replace(_oldWord, _newWord);
-          Console.WriteLine(newPhrase);
-          _outputWords.Add(newPhrase);
+          if (words[i] == _oldWord)
+          {
+            words[i] = _newWord;
+            Console.WriteLine(words[i]);
+            newPhrase = string.Join(" ", words);
+          }
         }
+        _outputWords.Add(newPhrase);
       }
-      if (_outputWords.Count == 0)
+      else
       {
         _outputWords.Add("Your word was not a match");
       }
