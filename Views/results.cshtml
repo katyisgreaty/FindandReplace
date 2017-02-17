@@ -1,0 +1,9 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h3>Your new phrase is:</h3>
+<h4>@foreach (var word in @Model.FindAndReplaceMethod())
+  {
+    <span>@word</span>
+  }</h4>
